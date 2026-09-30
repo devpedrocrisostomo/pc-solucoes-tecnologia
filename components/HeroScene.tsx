@@ -38,7 +38,17 @@ export function HeroScene() {
   useEffect(() => {
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const small = window.matchMedia('(max-width: 760px)');
-    const update = () => setAnimate(!motion.matches && !small.matches);
+    // Keep the existing static visual when the browser cannot render WebGL.
+    let supportsWebGL = false;
+    try {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('webgl2');
+      supportsWebGL = Boolean(context);
+      context?.getExtension('WEBGL_lose_context')?.loseContext();
+    } catch {
+      supportsWebGL = false;
+    }
+    const update = () => setAnimate(supportsWebGL && !motion.matches && !small.matches);
     update();
     motion.addEventListener('change', update);
     small.addEventListener('change', update);
