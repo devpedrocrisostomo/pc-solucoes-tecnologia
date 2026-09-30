@@ -23,6 +23,9 @@ const projects = [
   { name: 'PlotTher', tag: 'Cliente real', desc: 'Projeto comercial completo: UX, desenvolvimento, publicação e domínio.', stack: ['Web', 'UX/UI', 'SEO', 'Deploy'], url: 'https://plotther.com.br' },
 ];
 
+const contactEmail = 'devpedrocrisostomo@gmail.com';
+const contactHref = `mailto:${contactEmail}`;
+
 const reveal = { initial: { opacity: 0, y: 22 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.2 }, transition: { duration: 0.6 } };
 
 export default function Home() {
@@ -49,10 +52,10 @@ export default function Home() {
           </a>
           <div id="navegacao-mobile" className={`nav-links ${open ? 'open' : ''}`}>
             {['Início', 'Serviços', 'Projetos', 'Sobre', 'Experiência', 'Tecnologias', 'Contato'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace('í','i').replace('ç','c').replace('ê','e')}`} onClick={() => setOpen(false)}>{item}</a>
+              <a key={item} href={item === 'Contato' ? contactHref : `#${item.toLowerCase().replace('í','i').replace('ç','c').replace('ê','e')}`} onClick={() => setOpen(false)}>{item}</a>
             ))}
           </div>
-          <a href="#contato" className="btn btn-small desktop-cta">Fale comigo <ArrowRight size={16}/></a>
+          <a href={contactHref} className="btn btn-small desktop-cta">Fale comigo <ArrowRight size={16}/></a>
           <button className="menu-btn" type="button" onClick={() => setOpen(!open)} aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls="navegacao-mobile">{open ? <X /> : <Menu />}</button>
         </nav>
       </header>
@@ -66,7 +69,7 @@ export default function Home() {
             <div className="hero-chips">
               <span><Code2 size={16}/> Software</span><span><Bot size={16}/> IA</span><span><Workflow size={16}/> Automação</span><span><Database size={16}/> Dados</span><span><Network size={16}/> Consultoria</span>
             </div>
-            <div className="hero-actions"><a href="#projetos" className="btn">Conheça os projetos <ArrowRight size={17}/></a><a href="#contato" className="btn btn-ghost">Solicite uma consultoria</a></div>
+            <div className="hero-actions"><a href="#projetos" className="btn">Conheça os projetos <ArrowRight size={17}/></a><a href={contactHref} className="btn btn-ghost">Solicite uma consultoria</a></div>
             <div className="stats"><div><strong>5</strong><span>Projetos em destaque</span></div><div><strong>5</strong><span>Frentes de atuação</span></div><div><strong>100%</strong><span>Foco em soluções reais</span></div></div>
           </motion.div>
           <div className="hero-visual">{showScene ? <HeroScene /> : <div className="hero-scene"><div className="scene-fallback" aria-hidden="true"><span>PC</span></div></div>}<div className="hero-logo"><strong>PC</strong><span>SOLUÇÕES</span><small>SOFTWARE • IA • AUTOMAÇÃO • DADOS</small></div></div>
@@ -83,7 +86,7 @@ export default function Home() {
 
       <section className="section tech" id="tecnologias"><div className="container"><motion.div className="section-head" {...reveal}><div><span className="eyebrow">STACK & CAPACIDADES</span><h2>Tecnologia para construir, integrar e <span>evoluir.</span></h2></div></motion.div><div className="tech-grid">{[['Software','JavaScript • TypeScript • React • Next.js • Node.js • Python'],['Dados & Backend','PostgreSQL • Supabase • Prisma • SQL • Pandas • Streamlit'],['IA & Automação','OpenAI • LLMs • RAG • LangChain • LangGraph • N8N • UiPath'],['Cloud & Integrações','APIs • Webhooks • GitHub • Vercel • AWS • CRMs']].map(([t,s]) => <motion.div className="tech-card" key={t} {...reveal}><h3>{t}</h3><p>{s}</p></motion.div>)}</div></div></section>
 
-      <section className="section cta" id="contato"><motion.div className="container cta-box" {...reveal}><span className="eyebrow">VAMOS CONSTRUIR?</span><h2>Transforme sua ideia em uma solução <span>tecnológica.</span></h2><p>Projetos de software, automação, IA, dados e consultoria para empresas e profissionais.</p><a href="https://github.com/devpedrocrisostomo" target="_blank" rel="noopener noreferrer" className="btn">Conheça meu trabalho <ArrowRight size={17}/></a></motion.div></section>
+      <section className="section cta" id="contato"><motion.div className="container cta-box" {...reveal}><span className="eyebrow">VAMOS CONSTRUIR?</span><h2>Transforme sua ideia em uma solução <span>tecnológica.</span></h2><p>Projetos de software, automação, IA, dados e consultoria para empresas e profissionais.</p><p><a href={contactHref}>{contactEmail}</a></p><a href={contactHref} className="btn">Entre em contato <ArrowRight size={17}/></a></motion.div></section>
 
       <footer><div className="container footer"><div className="brand"><span className="brand-mark">PC</span><span><strong>PC SOLUÇÕES</strong><small>EM TECNOLOGIA</small></span></div><p>Software • IA • Automação • Dados</p><span>© 2026 PC Soluções em Tecnologia</span></div></footer>
     </main>
