@@ -46,9 +46,9 @@ export default function Home() {
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="nav-wrap">
         <nav className="nav container">
-          <a href="#inicio" className="brand" aria-label="PC Soluções em Tecnologia">
+          <a href="#inicio" className="brand" aria-label="PC Solutions">
             <span className="brand-mark">PC</span>
-            <span><strong>PC SOLUÇÕES</strong><small>EM TECNOLOGIA</small></span>
+            <span><strong>PC Solutions</strong></span>
           </a>
           <div id="navegacao-mobile" className={`nav-links ${open ? 'open' : ''}`}>
             {['Início', 'Serviços', 'Projetos', 'Sobre', 'Experiência', 'Tecnologias', 'Contato'].map((item) => (
@@ -65,14 +65,14 @@ export default function Home() {
           <motion.div className="hero-copy" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7 }}>
             <span className="eyebrow">CONSULTORIA EM TECNOLOGIA</span>
             <h1>Tecnologia que transforma <span>negócios.</span></h1>
-            <p>A PC Soluções em Tecnologia desenvolve software, automações e soluções com Inteligência Artificial e dados para empresas que querem operar melhor, crescer e inovar.</p>
+            <p>A PC Solutions desenvolve software, automações e soluções com Inteligência Artificial e dados para empresas que querem operar melhor, crescer e inovar.</p>
             <div className="hero-chips">
               <span><Code2 size={16}/> Software</span><span><Bot size={16}/> IA</span><span><Workflow size={16}/> Automação</span><span><Database size={16}/> Dados</span><span><Network size={16}/> Consultoria</span>
             </div>
             <div className="hero-actions"><a href="#projetos" className="btn">Conheça os projetos <ArrowRight size={17}/></a><a href={contactHref} className="btn btn-ghost">Solicite uma consultoria</a></div>
             <div className="stats"><div><strong>5</strong><span>Projetos em destaque</span></div><div><strong>5</strong><span>Frentes de atuação</span></div><div><strong>100%</strong><span>Foco em soluções reais</span></div></div>
           </motion.div>
-          <div className="hero-visual">{showScene ? <HeroScene /> : <div className="hero-scene"><div className="scene-fallback" aria-hidden="true"><span>PC</span></div></div>}<div className="hero-logo"><strong>PC</strong><span>SOLUÇÕES</span><small>SOFTWARE • IA • AUTOMAÇÃO • DADOS</small></div></div>
+          <div className="hero-visual">{showScene ? <HeroScene /> : <div className="hero-scene"><div className="scene-fallback" aria-hidden="true"><span>PC</span></div></div>}<div className="hero-logo"><strong>PC</strong><span>Solutions</span><small>SOFTWARE • IA • AUTOMAÇÃO • DADOS</small></div></div>
         </div>
       </section>
 
@@ -80,7 +80,7 @@ export default function Home() {
 
       <section className="section" id="projetos"><div className="container"><motion.div className="section-head" {...reveal}><div><span className="eyebrow">PROJETOS EM DESTAQUE</span><h2>Soluções reais para <span>desafios reais.</span></h2></div><p>Cada projeto combina tecnologia, experiência do usuário e entendimento de negócio.</p></motion.div><div className="projects-grid">{projects.map((p, i) => <motion.article className={`project-card ${i === 0 ? 'featured' : ''}`} key={p.name} {...reveal}><div className="project-glow" aria-hidden="true"></div><div className="project-art" aria-hidden="true"><span>{p.name.slice(0,2).toUpperCase()}</span><i/><i/><i/></div><span className="project-tag">{p.tag}</span><h3>{p.name}</h3><p>{p.desc}</p><div className="stack">{p.stack.map(s => <span key={s}>{s}</span>)}</div>{p.url && <a className="project-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Visitar projeto ${p.name} (abre em nova aba)`}><ExternalLink size={18}/></a>}</motion.article>)}</div></div></section>
 
-      <section className="section about" id="sobre"><div className="container about-grid"><motion.div {...reveal}><span className="eyebrow">SOBRE A PC</span><h2>Mais que tecnologia, parceria para o <span>seu sucesso.</span></h2><p>A PC Soluções em Tecnologia nasce da visão de que tecnologia deve resolver problemas reais, simplificar processos e criar novas oportunidades.</p><div className="founder-card"><div className="avatar" aria-hidden="true">PC</div><div><strong>Pedro Crisóstomo</strong><span>Founder & CEO / IT Consultant</span><p>Experiência em desenvolvimento, IA, automação, dados, suporte e relacionamento com clientes. Da descoberta do problema à entrega da solução.</p><div className="social"><a href="https://github.com/devpedrocrisostomo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pedro Crisóstomo (abre em nova aba)"><Github size={18}/></a></div></div></div></motion.div><motion.div className="value-grid" {...reveal}>{[['Visão de negócio','Entendimento real do problema.'],['Soluções personalizadas','Tecnologia aplicada ao contexto.'],['Experiência completa','Da operação à solução digital.'],['Foco em resultados','Projetos que geram valor.']].map(([a,b]) => <div className="value-card" key={a}><Sparkles/><strong>{a}</strong><span>{b}</span></div>)}</motion.div></div></section>
+      <section className="section about" id="sobre"><div className="container about-grid"><motion.div {...reveal}><span className="eyebrow">SOBRE A PC SOLUTIONS</span><h2>Mais que tecnologia, parceria para o <span>seu sucesso.</span></h2><p>A PC Solutions nasce da visão de que tecnologia deve resolver problemas reais, simplificar processos e criar novas oportunidades.</p><div className="founder-card"><div className="avatar" aria-hidden="true">PC</div><div><strong>Pedro Crisóstomo</strong><span>Founder & CEO / IT Consultant</span><p>Experiência em desenvolvimento, IA, automação, dados, suporte e relacionamento com clientes. Da descoberta do problema à entrega da solução.</p><div className="social"><a href="https://github.com/devpedrocrisostomo" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pedro Crisóstomo (abre em nova aba)"><Github size={18}/></a></div></div></div></motion.div><motion.div className="value-grid" {...reveal}>{[['Visão de negócio','Entendimento real do problema.'],['Soluções personalizadas','Tecnologia aplicada ao contexto.'],['Experiência completa','Da operação à solução digital.'],['Foco em resultados','Projetos que geram valor.']].map(([a,b]) => <div className="value-card" key={a}><Sparkles/><strong>{a}</strong><span>{b}</span></div>)}</motion.div></div></section>
 
       <section className="section experience" id="experiencia"><div className="container"><motion.div className="section-head" {...reveal}><div><span className="eyebrow">EXPERIÊNCIA</span><h2>Experiência técnica com <span>visão de operação.</span></h2></div><p>Uma trajetória que conecta desenvolvimento, atendimento e melhoria de processos.</p></motion.div><div className="experience-grid">{[['Desenvolvimento e sistemas','Aplicações web, integrações, bancos de dados e interfaces orientadas à experiência de uso.'],['Automação e relacionamento','Atuação com CRM, indicadores, processos e soluções de IA aplicadas ao trabalho de equipes.'],['Consultoria e entrega','Diagnóstico, proposta, implementação e acompanhamento de projetos para negócios reais.']].map(([title,description],i)=><motion.article className="experience-card" key={title} {...reveal}><span>0{i+1}</span><CheckCircle2 aria-hidden="true"/><h3>{title}</h3><p>{description}</p></motion.article>)}</div></div></section>
 
@@ -88,7 +88,7 @@ export default function Home() {
 
       <section className="section cta" id="contato"><motion.div className="container cta-box" {...reveal}><span className="eyebrow">VAMOS CONSTRUIR?</span><h2>Transforme sua ideia em uma solução <span>tecnológica.</span></h2><p>Projetos de software, automação, IA, dados e consultoria para empresas e profissionais.</p><p><a href={contactHref}>{contactEmail}</a></p><a href={contactHref} className="btn">Entre em contato <ArrowRight size={17}/></a></motion.div></section>
 
-      <footer><div className="container footer"><div className="brand"><span className="brand-mark">PC</span><span><strong>PC SOLUÇÕES</strong><small>EM TECNOLOGIA</small></span></div><p>Software • IA • Automação • Dados</p><span>© 2026 PC Soluções em Tecnologia</span></div></footer>
+      <footer><div className="container footer"><div className="brand"><span className="brand-mark">PC</span><span><strong>PC Solutions</strong></span></div><p>Software • IA • Automação • Dados</p><span>© 2026 PC Solutions</span></div></footer>
     </main>
   );
 }

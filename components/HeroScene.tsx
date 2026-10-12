@@ -1,7 +1,7 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Stars } from '@react-three/drei';
+import { Float, Environment, Lightformer } from '@react-three/drei';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
@@ -9,23 +9,23 @@ function Core() {
   const group = useRef<THREE.Group>(null);
   useFrame((state, delta) => {
     if (!group.current) return;
-    group.current.rotation.y += delta * 0.18;
+    group.current.rotation.y += delta * 0.12;
     group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.35) * 0.12;
   });
 
   return (
-    <Float speed={1.2} rotationIntensity={0.35} floatIntensity={0.7}>
+    <Float speed={0.9} rotationIntensity={0.12} floatIntensity={0.35}>
       <group ref={group}>
         <mesh>
-          <torusKnotGeometry args={[1.25, 0.32, 150, 24]} />
-          <meshStandardMaterial color="#0c1221" metalness={0.9} roughness={0.2} emissive="#061c3e" emissiveIntensity={1.4} />
+          <torusKnotGeometry args={[1.08, 0.28, 180, 32]} />
+          <meshPhysicalMaterial color="#7194b8" metalness={1} roughness={0.19} clearcoat={1} clearcoatRoughness={0.12} />
         </mesh>
-        <mesh scale={1.18}>
-          <torusGeometry args={[1.65, 0.025, 16, 120]} />
+        <mesh rotation={[0.45, 0.2, -0.25]}>
+          <torusGeometry args={[1.75, 0.014, 12, 120]} />
           <meshBasicMaterial color="#1fa2ff" />
         </mesh>
         <mesh rotation={[Math.PI / 2.4, 0.2, 0.3]} scale={0.96}>
-          <torusGeometry args={[1.8, 0.018, 16, 120]} />
+          <torusGeometry args={[1.9, 0.012, 12, 120]} />
           <meshBasicMaterial color="#6c4cff" />
         </mesh>
       </group>
@@ -60,7 +60,11 @@ export function HeroScene() {
         <ambientLight intensity={0.55} />
         <pointLight position={[4, 3, 4]} intensity={20} color="#168cff" />
         <pointLight position={[-4, -2, 2]} intensity={12} color="#6748ff" />
-        <Stars radius={30} depth={18} count={650} factor={2} saturation={0} fade speed={0.35} />
+        <Environment resolution={128}>
+          <Lightformer intensity={4} position={[0, 3, 3]} scale={[6, 2, 1]} color="#e0eeff" />
+          <Lightformer intensity={5} position={[-3, 0, 2]} rotation={[0, Math.PI / 3, 0]} scale={[2, 5, 1]} color="#168cff" />
+          <Lightformer intensity={3} position={[3, -1, 1]} rotation={[0, -Math.PI / 3, 0]} scale={[2, 4, 1]} color="#8665ff" />
+        </Environment>
         <Core />
       </Canvas> : <div className="scene-fallback"><span>PC</span></div>}
     </div>

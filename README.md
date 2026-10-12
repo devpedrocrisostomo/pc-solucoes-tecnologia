@@ -1,6 +1,6 @@
-# PC Soluções em Tecnologia
+# PC Solutions
 
-Site institucional responsivo da PC Soluções em Tecnologia, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15, TypeScript, Framer Motion e cena 3D carregada apenas em telas maiores sem preferência por movimento reduzido.
+Site institucional responsivo da PC Solutions, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15, TypeScript, Framer Motion e cena 3D carregada apenas em telas maiores sem preferência por movimento reduzido.
 
 ## Desenvolvimento
 
