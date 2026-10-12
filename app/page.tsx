@@ -4,6 +4,36 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight, ArrowRight, Code2, Workflow, BrainCircuit, ChartNoAxesCombined, Menu, X, Github, Check, Plus, Minus } from 'lucide-react';
 
 const email = 'mailto:devpedrocrisostomo@gmail.com';
+type GithubRepository = { id: number; name: string; description: string | null; html_url: string; homepage: string | null; fork: boolean; archived: boolean; updated_at: string; language: string | null };
+const githubUser = 'devpedrocrisostomo';
+function GithubPortfolio() {
+  const [repos, setRepos] = useState<GithubRepository[]>([]);
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  useEffect(() => {
+    const controller = new AbortController();
+    async function load() {
+      try {
+        const response = await fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&type=owner&sort=updated`, { signal: controller.signal, headers: { Accept: 'application/vnd.github+json' } });
+        if (!response.ok) throw new Error('GitHub API unavailable');
+        const data: GithubRepository[] = await response.json();
+        if (!Array.isArray(data)) throw new Error('Invalid GitHub response');
+        setRepos(data.filter(repo => !repo.fork && repo.name !== 'pc-solucoes-tecnologia'));
+        setStatus('ready');
+      } catch (error) {
+        if (!controller.signal.aborted) setStatus('error');
+      }
+    }
+    load();
+    return () => controller.abort();
+  }, []);
+  return <div className="github-portfolio">
+    <div className="github-portfolio-heading"><div><span className="eyebrow">REPOSITÓRIOS PÚBLICOS</span><h3>Projetos no GitHub</h3><p>Repositórios públicos do perfil oficial, atualizados automaticamente. Links para demonstrações são exibidos quando informados no GitHub.</p></div><a className="text-link" href={`https://github.com/${githubUser}?tab=repositories`} target="_blank" rel="noopener noreferrer">Ver perfil completo <ArrowUpRight size={17}/></a></div>
+    {status === 'loading' && <p role="status">Carregando repositórios públicos...</p>}
+    {status === 'error' && <p role="status">Não foi possível carregar os repositórios agora. <a className="text-link" href={`https://github.com/${githubUser}?tab=repositories`} target="_blank" rel="noopener noreferrer">Acessar diretamente no GitHub <ArrowUpRight size={16}/></a></p>}
+    {status === 'ready' && (repos.length ? <div className="github-repos-grid">{repos.map(repo => <article className="github-repo" key={repo.id}><div className="github-repo-top"><Code2 size={21} strokeWidth={1.5}/><span>{repo.archived ? 'Arquivado' : repo.language || 'Projeto'}</span></div><h4>{repo.name}</h4><p>{repo.description || 'Projeto publicado no GitHub.'}</p><div className="github-repo-links"><a href={repo.html_url} target="_blank" rel="noopener noreferrer" aria-label={`Ver código de ${repo.name} no GitHub`}>Ver código <ArrowUpRight size={16}/></a>{repo.homepage && /^https:\/\//i.test(repo.homepage) && <a href={repo.homepage} target="_blank" rel="noopener noreferrer" aria-label={`Abrir demonstração de ${repo.name}`}>Abrir projeto <ArrowUpRight size={16}/></a>}</div></article>)}</div> : <p role="status">Nenhum outro repositório público foi encontrado neste perfil.</p>)}
+    <p className="github-disclaimer">Projetos privados ou hospedados em outras contas não aparecem automaticamente. A presença de um link não garante que a aplicação esteja operacional.</p>
+  </div>;
+}
 const services = [
   { icon: Code2, title: 'Software sob medida', text: 'Sites e sistemas web pensados para o seu negócio, com interfaces simples e integrações que fazem sentido.', detail: 'Sites • Aplicações web • Integrações' },
   { icon: BrainCircuit, title: 'Inteligência artificial', text: 'Agentes e assistentes que conectam conhecimento, atendimento e processos da sua empresa.', detail: 'Agentes de IA • Assistentes • RAG' },
