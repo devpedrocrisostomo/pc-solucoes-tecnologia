@@ -1,6 +1,6 @@
 # PC Solutions
 
-Site institucional responsivo da PC Solutions, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15, TypeScript, Framer Motion e cena 3D carregada apenas em telas maiores sem preferência por movimento reduzido.
+Site institucional responsivo da PC Solutions, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15 e TypeScript. Layout claro com contraste em grafite, escultura em CSS, menu móvel e perguntas frequentes acessíveis. Os previews dos projetos são representações ilustrativas, identificadas no site.
 
 ## Desenvolvimento
 
@@ -25,7 +25,7 @@ O site é estático na rota principal. O service worker é registrado apenas na 
 2. Framework preset: Next.js; root directory: a pasta que contém este `package.json`; build command: `npm run build`.
 3. Defina `NEXT_PUBLIC_SITE_URL` com a origem definitiva, por exemplo `https://seu-dominio.com.br`, sem barra final. Isso ativa URL canônica e imagem Open Graph absoluta.
 4. Faça o deploy e confira `/manifest.webmanifest`, `/icons/icon-192.png`, `/icons/icon-512.png` e `/sw.js` em HTTPS.
-5. Confirme o domínio e substitua o CTA de contato pelo canal comercial definitivo. O link atual aponta para o GitHub público de Pedro.
+5. Confirme o domínio e substitua o CTA de contato pelo canal comercial definitivo. Os CTAs apontam para `mailto:devpedrocrisostomo@gmail.com`.
 
 Não há segredos de servidor ou serviço de formulário necessários nesta versão. O cartão PlotTher aponta para o site publicado; os demais cartões não exibem links enquanto suas URLs públicas não forem confirmadas.
 

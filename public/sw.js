@@ -1,4 +1,4 @@
-const CACHE = "pc-solucoes-root-v4";
+const CACHE = "pc-solucoes-root-v5";
 const CORE = ["/","/manifest.webmanifest","/icons/icon-192.png","/icons/icon-512.png"];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));
