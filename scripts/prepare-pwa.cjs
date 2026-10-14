@@ -7,7 +7,7 @@ const manifest = {
   name: 'PC Solutions', short_name: 'PC Solutions',
   description: 'Software, IA, automação, dados e consultoria em tecnologia.',
   start_url: asset('/'), scope: asset('/'), display: 'standalone',
-  background_color: '#f8f9f6', theme_color: '#f8f9f6', lang: 'pt-BR',
+  background_color: '#121814', theme_color: '#121814', lang: 'pt-BR',
   icons: [
     { src: asset('/icons/icon-192.png'), sizes: '192x192', type: 'image/png', purpose: 'any' },
     { src: asset('/icons/icon-512.png'), sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
@@ -16,7 +16,7 @@ const manifest = {
 fs.writeFileSync(path.join('public', 'manifest.webmanifest'), JSON.stringify(manifest, null, 2) + '\n');
 const home = JSON.stringify(asset('/'));
 let sw = fs.readFileSync(path.join('scripts', 'sw-template.js'), 'utf8');
-sw = sw.replace("'pc-solucoes-v2'", JSON.stringify(`pc-solucoes-${base || 'root'}-v5`));
+sw = sw.replace("'pc-solucoes-v2'", JSON.stringify(`pc-solucoes-${base || 'root'}-v6`));
 sw = sw.replace(/const CORE = .*;/, `const CORE = ${JSON.stringify(['/', '/manifest.webmanifest', '/icons/icon-192.png', '/icons/icon-512.png'].map(asset))};`);
 sw = sw.replace(/cache\.put\('\/'/g, `cache.put(${home}`).replace(/caches\.match\('\/'/g, `caches.match(${home}`);
 // Only remove this site's previous cache versions on shared GitHub Pages origins.

@@ -1,6 +1,6 @@
 # PC Solutions
 
-Site institucional responsivo da PC Solutions, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15 e TypeScript. Layout claro com contraste em grafite, escultura em CSS, menu móvel e perguntas frequentes acessíveis. Os previews dos projetos são representações ilustrativas, identificadas no site.
+Site institucional responsivo da PC Solutions, com Pedro Crisóstomo como Founder & CEO / IT Consultant. Next.js 15 e TypeScript. Identidade em grafite, marfim e verde-lima, monograma PC, escultura WebGL com Three.js, React Three Fiber e Drei, menu móvel e perguntas frequentes acessíveis. A cena é carregada separadamente, permite pausar o movimento e interrompe a animação fora da tela ou com a aba oculta. Sem WebGL ou com movimento reduzido, uma escultura CSS substitui a cena. Os previews dos projetos são representações ilustrativas, identificadas no site.
 
 ## Desenvolvimento
 
@@ -27,7 +27,7 @@ O site é estático na rota principal. O service worker é registrado apenas na 
 4. Faça o deploy e confira `/manifest.webmanifest`, `/icons/icon-192.png`, `/icons/icon-512.png` e `/sw.js` em HTTPS.
 5. Confirme o domínio e substitua o CTA de contato pelo canal comercial definitivo. Os CTAs apontam para `mailto:devpedrocrisostomo@gmail.com`.
 
-Não há segredos de servidor ou serviço de formulário necessários nesta versão. O cartão PlotTher aponta para o site publicado; os demais cartões não exibem links enquanto suas URLs públicas não forem confirmadas.
+Não há segredos de servidor ou serviço de formulário necessários nesta versão. O catálogo é curado em `app/page.tsx`: os botões abrem diretamente as demonstrações publicadas; projetos sem URL disponível são identificados sem link. Novos projetos exigem atualização explícita do catálogo.
 
 ## GitHub Pages
 
