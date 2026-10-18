@@ -40,3 +40,12 @@ GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/pc-solucoes-tecnologia NEXT_PUBLIC_SITE
 ```
 
 O modo estático não usa `npm start`; sirva a pasta `out/` com um servidor de arquivos. O nome acima é uma sugestão de novo repositório. O workflow usa o caminho real retornado pelo GitHub Pages, inclusive quando houver domínio próprio.
+
+## Cookies, privacidade e segurança (18/10/2026)
+
+- Rotas públicas: `/privacidade`, `/cookies` e `/seguranca`. O rodapé oferece acesso permanente.
+- O aviso de cookies é **informativo**: nenhum cookie próprio de analytics/marketing está configurado no código atual. O estado de leitura é salvo em `localStorage` (`pc-solutions.cookie-notice.v1`) e pode ser reaberto no rodapé. Cache Storage é usado pelo PWA. **Não confundir aviso com consentimento para rastreamento.**
+- Antes de adicionar scripts de análise, publicidade, pixels ou integrações que usem dados pessoais, realizar inventário de cookies/serviços, atualizar estas políticas e criar gestão real de consentimento com recusa e revogação.
+- Na Vercel/Next.js, `next.config.ts` define CSP compatível com a hidratação atual, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy e HSTS. A CSP permite `unsafe-inline` para compatibilidade; **não é uma CSP estrita por nonce**.
+- O modo `GITHUB_PAGES=true` usa exportação estática: a configuração `headers()` do Next.js **não é aplicada pelo GitHub Pages**. Caso o site seja servido por lá, a configuração equivalente depende do host/CDN.
+- HTTPS, certificados, cookies eventualmente usados pela plataforma, logs, retenção e transferências internacionais devem ser verificados também no painel e nas políticas do provedor. A publicação de políticas por si só não certifica conformidade integral com a LGPD; revisão jurídica e inventário de fornecedores são recomendados.

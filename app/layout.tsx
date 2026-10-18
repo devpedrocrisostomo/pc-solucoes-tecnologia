@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister';
+import { CookieNotice } from '@/components/CookieNotice';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <ServiceWorkerRegister />
         {children}
+        <CookieNotice />
       </body>
     </html>
   );

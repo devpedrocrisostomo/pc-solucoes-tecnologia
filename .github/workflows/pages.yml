@@ -23,6 +23,8 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
+      - name: Verificar TypeScript
+        run: npm run lint
       - name: Exportar site
         run: npm run build
         env:
