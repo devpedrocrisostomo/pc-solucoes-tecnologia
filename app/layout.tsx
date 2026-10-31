@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     title: 'PC Solutions',
   },
   icons: {
-    icon: [{ url: `${basePath}/icons/icon.svg?v=pc-solutions-20261014`, type: 'image/svg+xml' }, { url: `${basePath}/icons/icon-192.png?v=pc-solutions-20261014`, sizes: '192x192', type: 'image/png' }],
+    icon: [{ url: `${basePath}/icons/icon.svg?v=pc-solutions-20261031`, type: 'image/svg+xml' }, { url: `${basePath}/icons/icon-192.png?v=pc-solutions-20261031`, sizes: '192x192', type: 'image/png' }],
     apple: `${basePath}/icons/icon-192.png`,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#121814',
+  themeColor: '#0A0A0C',
   width: 'device-width',
   initialScale: 1,
 };

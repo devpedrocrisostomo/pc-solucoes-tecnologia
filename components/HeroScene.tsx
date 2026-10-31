@@ -15,9 +15,9 @@ function Sculpture({ running }: { running: boolean }) {
   });
   return <group ref={group} rotation={[.15, .25, -.2]}>
     {[0, 1, 2].map(i => <group key={i} rotation={[i * Math.PI / 3, i * Math.PI / 3, 0]}>
-      <mesh><torusGeometry args={[1.35, .19, 20, 96]}/><meshPhysicalMaterial color={i === 1 ? '#d7f975' : '#bdc5bf'} metalness={i === 1 ? .45 : 1} roughness={.2} clearcoat={1}/></mesh>
+      <mesh><torusGeometry args={[1.35, .19, 20, 96]}/><meshPhysicalMaterial color={i === 1 ? '#F5F5F3' : '#BFC3CC'} metalness={1} roughness={.2} clearcoat={1}/></mesh>
     </group>)}
-    <RoundedBox args={[.72, .72, .72]} radius={.13} smoothness={4} rotation={[.4, .4, .3]}><meshPhysicalMaterial color="#d7f975" metalness={.5} roughness={.18}/></RoundedBox>
+    <RoundedBox args={[.72, .72, .72]} radius={.13} smoothness={4} rotation={[.4, .4, .3]}><meshPhysicalMaterial color="#F5F5F3" metalness={1} roughness={.18}/></RoundedBox>
   </group>;
 }
 export function HeroScene({ running }: { running: boolean }) {
@@ -25,8 +25,8 @@ export function HeroScene({ running }: { running: boolean }) {
     <ambientLight intensity={.6}/><directionalLight position={[3, 4, 5]} intensity={2}/>
     <Environment resolution={128} frames={1}>
       <Lightformer intensity={5} position={[0, 4, 3]} scale={[6, 2, 1]} color="#ffffff"/>
-      <Lightformer intensity={3} position={[-4, 0, 2]} rotation={[0, Math.PI / 3, 0]} scale={[2, 6, 1]} color="#d7f975"/>
-      <Lightformer intensity={4} position={[4, -2, 1]} rotation={[0, -Math.PI / 3, 0]} scale={[3, 5, 1]} color="#a1b8a7"/>
+      <Lightformer intensity={3} position={[-4, 0, 2]} rotation={[0, Math.PI / 3, 0]} scale={[2, 6, 1]} color="#F5F5F3"/>
+      <Lightformer intensity={4} position={[4, -2, 1]} rotation={[0, -Math.PI / 3, 0]} scale={[3, 5, 1]} color="#BFC3CC"/>
     </Environment>
     <Sculpture running={running}/>
   </Canvas>;
